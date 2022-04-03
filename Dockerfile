@@ -11,7 +11,7 @@ COPY Pipfile .
 #Install python dependencies
 RUN pipenv --python /usr/local/bin/python install
 
-COPY ./app /app
+COPY . .
 
 EXPOSE $PORT
 
