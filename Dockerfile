@@ -9,7 +9,8 @@ WORKDIR /app
 COPY Pipfile .
 
 #Install python dependencies
-RUN pipenv install --system --dev
+RUN pipenv install
+RUN pip install uvicorn
 
 COPY . .
 
