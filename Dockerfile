@@ -9,7 +9,7 @@ WORKDIR /app
 COPY Pipfile .
 
 #Install python dependencies
-RUN pipenv install
+RUN pipenv --python /usr/local/bin/python install
 
 COPY ./app /app
 
