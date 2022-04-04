@@ -16,4 +16,4 @@ COPY . .
 
 EXPOSE 80
 
-CMD uvicorn main:app --host 0.0.0.0 --port 80
+CMD exec gunicorn --bind :$PORT --workers 1 --worker-class uvicorn.workers.UvicornWorker main:app
