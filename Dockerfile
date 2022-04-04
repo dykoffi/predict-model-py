@@ -15,4 +15,4 @@ COPY . .
 
 EXPOSE 80
 
-CMD gunicorn --bind :$PORT --workers 1 --worker-class uvicorn.workers.UvicornWorker  --threads 8 main:app
+CMD gunicorn --bind :80 --workers 1 --worker-class uvicorn.workers.UvicornWorker  --threads 8 main:app
