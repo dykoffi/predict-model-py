@@ -1,7 +1,7 @@
 import pandas as pd
 from joblib import load
 
-from .model import Item
+from model import Item
 
 def pred_func(arguments:Item):
     filename = 'final_model.sav'

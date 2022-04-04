@@ -2,18 +2,17 @@ FROM python:3.10-slim
 
 
 # Install and update 
-RUN /usr/local/bin/python -m pip install --upgrade pip && \
-    pip install pipenv && \
-    pip install uvicorn
+RUN pip install pipenv
 
 WORKDIR /app
 COPY Pipfile .
+COPY Pipfile.lock .
 
-#Install python dependencies
-RUN pipenv install
+RUN pipenv install --system --deploy --ignore-pipfile
+# RUN pipenv shell
 
 COPY . .
 
 EXPOSE 80
 
-CMD exec gunicorn --bind :$PORT --workers 1 --worker-class uvicorn.workers.UvicornWorker main:app
+CMD gunicorn --bind :$PORT --workers 1 --worker-class uvicorn.workers.UvicornWorker  --threads 8 main:app

@@ -9,7 +9,12 @@ joblib = "~=1.1.0"
 sklearn = "*"
 fastapi = "*"
 pydantic = "*"
+gunicorn = "*"
+geocoder = "*"
+uvloop = "*"
+httptools = "*"
 uvicorn = "*"
+
 
 [dev-packages]
 
